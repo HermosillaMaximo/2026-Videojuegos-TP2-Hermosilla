@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bov5te4ts6y4l"]
+
+[ext_resource type="Texture2D" uid="uid://db8nt04hlcmlh" path="res://PapaSau.jpg" id="1_4j4id"]
+
+[node name="Escena1" type="Node2D" unique_id=1398482360]
+
+[node name="Mapa" type="Node2D" parent="." unique_id=562035407]
+
+[node name="Sprite2D" type="Sprite2D" parent="Mapa" unique_id=733956125]
+position = Vector2(578, 326.25)
+scale = Vector2(1.5597827, 1.699475)
+texture = ExtResource("1_4j4id")

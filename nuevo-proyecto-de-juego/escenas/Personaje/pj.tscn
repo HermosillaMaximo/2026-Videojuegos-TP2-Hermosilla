@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7db2qxt4e8hj"]
+
+[ext_resource type="Script" uid="uid://cxfnow6vvocrt" path="res://pj.gd" id="1_7152t"]
+[ext_resource type="Texture2D" uid="uid://bn4os76ly7qrg" path="res://FreeCharactersAnimationsAssetPack/SpriteSheets(96x96)/Human_Soldier_Sword_Shield/With_Shadows/Human_Soldier_Sword_Shield-Sheet.png" id="2_uwftu"]
+
+[node name="PJ" type="CharacterBody2D" unique_id=990415258]
+script = ExtResource("1_7152t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=223584483]
+texture = ExtResource("2_uwftu")
+centered = false
+hframes = 10
+vframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900794073]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1767413566]
