@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://bov5te4ts6y4l"]
 
 [ext_resource type="Texture2D" uid="uid://db8nt04hlcmlh" path="res://PapaSau.jpg" id="1_4j4id"]
+[ext_resource type="PackedScene" uid="uid://b7db2qxt4e8hj" path="res://escenas/Personaje/pj.tscn" id="2_u2yvm"]
 
 [node name="Escena1" type="Node2D" unique_id=1398482360]
 
 [node name="Mapa" type="Node2D" parent="." unique_id=562035407]
 
 [node name="Sprite2D" type="Sprite2D" parent="Mapa" unique_id=733956125]
-position = Vector2(578, 326.25)
-scale = Vector2(1.5597827, 1.699475)
+position = Vector2(174.49998, 76)
+scale = Vector2(0.47418484, 0.39370078)
 texture = ExtResource("1_4j4id")
+
+[node name="PJ" parent="." unique_id=1958886320 instance=ExtResource("2_u2yvm")]
