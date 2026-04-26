@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var velocidad : float
 @export var danio : int
 var atacando : bool = false
+var recibeDanio : bool = false
 
 
 
@@ -22,6 +23,11 @@ func _physics_process(delta: float) -> void:
 	direccion = direccion.normalized()  
 	velocity = direccion * velocidad
 	move_and_slide()
+	
+	
+	if recibeDanio:
+		return
+	# esto me ayudo para que el personaje no se quede statico cuando recibe el golpe
 	
 	if direccion != Vector2.ZERO:
 		$AnimatedSprite2D.play("player_run")
@@ -48,3 +54,12 @@ func iniciar_ataque(animacion : String) -> void:
 	await $AnimatedSprite2D.animation_finished
 	atacando = false
 	
+func recibir_danio(cantidad : int) -> void:
+	if recibeDanio:
+		return
+	vida -= cantidad
+	print("vida del jugador:", vida)
+	recibeDanio = true
+	$AnimatedSprite2D.play("player_hurt")
+	await $AnimatedSprite2D.animation_finished
+	recibeDanio = false

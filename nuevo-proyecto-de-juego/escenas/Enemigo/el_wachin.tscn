@@ -273,19 +273,34 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_847ln"]
+radius = 11.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_847ln"]
+radius = 162.04938
+
 [node name="El wachin" type="CharacterBody2D" unique_id=1588157484]
 position = Vector2(51, 30)
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_m4xlw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=551806356]
+position = Vector2(7.6293945e-06, 0)
+scale = Vector2(3.3541667, 3.203125)
 sprite_frames = SubResource("SpriteFrames_1htni")
 animation = &"enemy_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829500646]
+position = Vector2(-2, 15)
+shape = SubResource("CapsuleShape2D_847ln")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=182911380]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1604780433]
+shape = SubResource("CircleShape2D_847ln")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
