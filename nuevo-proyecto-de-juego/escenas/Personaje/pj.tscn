@@ -275,7 +275,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xl7y7"]
 radius = 7.0
-height = 20.0
+height = 32.0
 
 [node name="PJ" type="CharacterBody2D" unique_id=1958886320]
 position = Vector2(138, 92)
@@ -284,11 +284,12 @@ script = ExtResource("1_7152t")
 vida = 30
 velocidad = 50.0
 danio = 10
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1401375101]
+scale = Vector2(1.7083334, 1.6145834)
 sprite_frames = SubResource("SpriteFrames_h6c0v")
 animation = &"player_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361743874]
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_xl7y7")
