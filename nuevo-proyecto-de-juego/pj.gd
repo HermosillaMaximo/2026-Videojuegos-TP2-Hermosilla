@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var danio : int
 var atacando : bool = false
 var recibeDanio : bool = false
+var enemigos_en_rango : Array = []
+
+
 
 
 
@@ -52,6 +55,8 @@ func iniciar_ataque(animacion : String) -> void:
 	atacando = true
 	$AnimatedSprite2D.play(animacion)
 	await $AnimatedSprite2D.animation_finished
+	for enemigo in enemigos_en_rango:
+		enemigo.recibir_danio(danio)
 	atacando = false
 	
 func recibir_danio(cantidad : int) -> void:
@@ -63,3 +68,13 @@ func recibir_danio(cantidad : int) -> void:
 	$AnimatedSprite2D.play("player_hurt")
 	await $AnimatedSprite2D.animation_finished
 	recibeDanio = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("area detectó: ", body.name, " grupos: ", body.get_groups())
+	if body.is_in_group("enemigo"):
+		enemigos_en_rango.append(body)
+		
+func _on_area_2d_body_exited(body : Node2D) -> void:
+	if body.is_in_group("enemigo"):
+		enemigos_en_rango.erase(body)

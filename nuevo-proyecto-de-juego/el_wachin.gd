@@ -58,5 +58,12 @@ func atacar() -> void:
 			jugador.recibir_danio(danio)
 	atacando = false
 	
+func recibir_danio(cantidad : int) -> void:
+	vida -= cantidad
+	print("vida del enemigo:", vida)
+	$AnimatedSprite2D.play("enemy_hurt")
+	if vida <= 0:
+		queue_free()
+	
 
 	

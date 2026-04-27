@@ -280,7 +280,7 @@ height = 26.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_847ln"]
 radius = 162.04938
 
-[node name="El wachin" type="CharacterBody2D" unique_id=1588157484]
+[node name="El wachin" type="CharacterBody2D" unique_id=1588157484 groups=["enemigo"]]
 position = Vector2(51, 30)
 collision_layer = 2
 collision_mask = 0
