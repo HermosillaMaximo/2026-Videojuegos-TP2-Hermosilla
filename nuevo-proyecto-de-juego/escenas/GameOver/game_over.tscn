@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://xtmpkmeqqfhr"]
+
+[ext_resource type="Texture2D" uid="uid://dm8e8m1sfgcfs" path="res://game-over.webp" id="1_1u0eo"]
+[ext_resource type="Texture2D" uid="uid://hrwughvhbyp0" path="res://Imagen pegada.png" id="2_1u0eo"]
+
+[node name="GameOver" type="Control" unique_id=1657651377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=58898071]
+position = Vector2(575.5, 325.625)
+scale = Vector2(0.22441407, 0.22526042)
+texture = ExtResource("1_1u0eo")
+
+[node name="Button" type="Button" parent="." unique_id=578673055]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 489.0
+offset_right = 693.0
+offset_bottom = 594.0
+icon = ExtResource("2_1u0eo")
+metadata/_edit_group_ = true

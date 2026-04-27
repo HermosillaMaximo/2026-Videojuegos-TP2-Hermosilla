@@ -274,8 +274,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_847ln"]
-radius = 11.0
-height = 26.0
+radius = 22.0
+height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_847ln"]
 radius = 162.04938
@@ -285,6 +285,7 @@ position = Vector2(51, 30)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_m4xlw")
+vida = 45
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=551806356]
 position = Vector2(7.6293945e-06, 0)

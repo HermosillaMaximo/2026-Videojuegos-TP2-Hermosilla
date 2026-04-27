@@ -56,7 +56,8 @@ func iniciar_ataque(animacion : String) -> void:
 	$AnimatedSprite2D.play(animacion)
 	await $AnimatedSprite2D.animation_finished
 	for enemigo in enemigos_en_rango:
-		enemigo.recibir_danio(danio)
+		if is_instance_valid(enemigo):
+			enemigo.recibir_danio(danio)
 	atacando = false
 	
 func recibir_danio(cantidad : int) -> void:
@@ -64,6 +65,9 @@ func recibir_danio(cantidad : int) -> void:
 		return
 	vida -= cantidad
 	print("vida del jugador:", vida)
+	if vida <= 0:
+		get_tree().change_scene_to_file("res://escenas/GameOver/game_over.tscn")
+		return
 	recibeDanio = true
 	$AnimatedSprite2D.play("player_hurt")
 	await $AnimatedSprite2D.animation_finished

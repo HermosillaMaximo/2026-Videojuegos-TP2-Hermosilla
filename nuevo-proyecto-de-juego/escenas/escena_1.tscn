@@ -9,8 +9,8 @@
 [node name="Mapa" type="Node2D" parent="." unique_id=562035407]
 
 [node name="Sprite2D" type="Sprite2D" parent="Mapa" unique_id=733956125]
-position = Vector2(577, 326)
-scale = Vector2(1.5679346, 1.7060368)
+position = Vector2(575, 324.5)
+scale = Vector2(1.5624999, 1.6981628)
 texture = ExtResource("1_4j4id")
 
 [node name="PJ" parent="." unique_id=1958886320 instance=ExtResource("2_u2yvm")]
