@@ -1,19 +1,113 @@
 [gd_scene format=3 uid="uid://bov5te4ts6y4l"]
 
 [ext_resource type="Texture2D" uid="uid://db8nt04hlcmlh" path="res://PapaSau.jpg" id="1_4j4id"]
+[ext_resource type="Script" uid="uid://dmvui4664qr7n" path="res://escenas/escena_1.gd" id="1_rjdl1"]
 [ext_resource type="PackedScene" uid="uid://b7db2qxt4e8hj" path="res://escenas/Personaje/pj.tscn" id="2_u2yvm"]
 [ext_resource type="PackedScene" uid="uid://bhidd87tyojt3" path="res://escenas/Enemigo/el_wachin.tscn" id="3_0mg33"]
+[ext_resource type="Script" uid="uid://cmc280nlmc1vu" path="res://escenas/barraVida.gd" id="5_meahv"]
+
+[sub_resource type="GDScript" id="GDScript_meahv"]
+script/source = "extends HBoxContainer
+
+@onready var jugador = get_tree().get_first_node_in_group(\"jugador\")
+var cuadrados : Array = []
+
+func _ready() -> void:
+	for hijo in get_children():
+		cuadrados.append(hijo)
+
+func _process(delta: float) -> void:
+	var vida_max = jugador.vida_max
+	var vida_actual = jugador.vida
+	var vida_por_cuadrado = vida_max / cuadrados.size()
+	
+	for i in cuadrados.size():
+		if vida_actual > i * vida_por_cuadrado:
+			cuadrados[i].visible = true
+		else:
+			cuadrados[i].visible = false
+"
 
 [node name="Escena1" type="Node2D" unique_id=1398482360]
+script = ExtResource("1_rjdl1")
+escena_enemigo = ExtResource("3_0mg33")
 
 [node name="Mapa" type="Node2D" parent="." unique_id=562035407]
 
 [node name="Sprite2D" type="Sprite2D" parent="Mapa" unique_id=733956125]
-position = Vector2(575, 324.5)
-scale = Vector2(1.5624999, 1.6981628)
+position = Vector2(849.5, 502.00003)
+scale = Vector2(2.3084238, 2.6246722)
 texture = ExtResource("1_4j4id")
 
 [node name="PJ" parent="." unique_id=1958886320 instance=ExtResource("2_u2yvm")]
+collision_layer = 1
 
 [node name="El wachin" parent="." unique_id=1588157484 instance=ExtResource("3_0mg33")]
 position = Vector2(378, 333)
+
+[node name="Spawn 1" type="Marker2D" parent="." unique_id=1672026101]
+position = Vector2(1034, 391)
+gizmo_extents = 65.0
+
+[node name="Spawn 2" type="Marker2D" parent="." unique_id=571541538]
+position = Vector2(695, 572)
+gizmo_extents = 65.0
+
+[node name="Spawn 3" type="Marker2D" parent="." unique_id=1362684349]
+position = Vector2(512, 302)
+gizmo_extents = 65.0
+
+[node name="Spawn 4" type="Marker2D" parent="." unique_id=1659890568]
+position = Vector2(963, 174)
+gizmo_extents = 65.0
+
+[node name="Spawn 5" type="Marker2D" parent="." unique_id=1660835759]
+position = Vector2(1420, 868)
+gizmo_extents = 65.0
+
+[node name="Spawn 6" type="Marker2D" parent="." unique_id=267669573]
+position = Vector2(1389, 635)
+gizmo_extents = 65.0
+
+[node name="Spawn 7" type="Marker2D" parent="." unique_id=904870903]
+position = Vector2(1133, 736)
+gizmo_extents = 65.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=16157697]
+script = SubResource("GDScript_meahv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1873943893]
+custom_minimum_size = Vector2(300, 50)
+offset_right = 194.0
+offset_bottom = 43.0
+script = ExtResource("5_meahv")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=1466554364]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=460096212]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=793784701]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=361161574]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=1324017862]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=1799048695]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0, 1, 0, 1)

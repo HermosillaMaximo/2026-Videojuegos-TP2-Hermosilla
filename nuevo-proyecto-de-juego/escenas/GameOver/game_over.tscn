@@ -1,26 +1,29 @@
 [gd_scene format=3 uid="uid://xtmpkmeqqfhr"]
 
 [ext_resource type="Texture2D" uid="uid://dm8e8m1sfgcfs" path="res://game-over.webp" id="1_1u0eo"]
+[ext_resource type="Script" uid="uid://01lw7cht3vvv" path="res://escenas/GameOver/game_over.gd" id="1_brgye"]
 [ext_resource type="Texture2D" uid="uid://hrwughvhbyp0" path="res://Imagen pegada.png" id="2_1u0eo"]
 
 [node name="GameOver" type="Control" unique_id=1657651377]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 648.0
 grow_horizontal = 2
-grow_vertical = 2
+script = ExtResource("1_brgye")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=58898071]
-position = Vector2(575.5, 325.625)
-scale = Vector2(0.22441407, 0.22526042)
+position = Vector2(848.5, 508.8125)
+scale = Vector2(0.3353516, 0.35360244)
 texture = ExtResource("1_1u0eo")
 
 [node name="Button" type="Button" parent="." unique_id=578673055]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 489.0
-offset_right = 693.0
-offset_bottom = 594.0
+offset_left = 745.0
+offset_top = 778.0
+offset_right = 982.0
+offset_bottom = 883.0
 icon = ExtResource("2_1u0eo")
 metadata/_edit_group_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

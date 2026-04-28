@@ -282,11 +282,11 @@ size = Vector2(67, 23)
 
 [node name="PJ" type="CharacterBody2D" unique_id=1958886320 groups=["jugador"]]
 position = Vector2(188, 412)
-collision_mask = 3
+collision_layer = 12
 motion_mode = 1
 script = ExtResource("1_7152t")
-vida = 30
-velocidad = 85.0
+vida = 50
+velocidad = 90.0
 danio = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1401375101]

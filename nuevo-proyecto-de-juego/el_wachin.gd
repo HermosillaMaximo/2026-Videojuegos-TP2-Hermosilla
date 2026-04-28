@@ -8,6 +8,7 @@ var atacando : bool = false
 var reciboDanio : bool = false
 
 func _physics_process(delta: float) -> void:
+	
 	if reciboDanio:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -18,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		var direccion = (jugador.global_position - global_position).normalized()
 		
 		
-		if distancia > 50:
+		if distancia > 53:
 			atacando = false
 			velocity = direccion * velocidad
 			$AnimatedSprite2D.play("enemy_walk")
@@ -60,7 +61,7 @@ func atacar() -> void:
 	await $AnimatedSprite2D.animation_finished
 	if jugador :
 		var distancia = global_position.distance_to(jugador.global_position)
-		if distancia <= 50:
+		if distancia <= 53:
 			jugador.recibir_danio(danio)
 	atacando = false
 	
