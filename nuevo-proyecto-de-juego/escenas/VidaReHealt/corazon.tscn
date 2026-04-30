@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://y3eutk4r2018"]
+
+[ext_resource type="Script" uid="uid://ne4oo4m7khyo" path="res://corazon.gd" id="1_nngnm"]
+[ext_resource type="Texture2D" uid="uid://blr6p7m0ybfye" path="res://vida.webp" id="2_mnufl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nngnm"]
+size = Vector2(108, 64)
+
+[node name="Corazon" type="Area2D" unique_id=74996226]
+position = Vector2(17, 11)
+collision_layer = 4
+script = ExtResource("1_nngnm")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=164488793]
+position = Vector2(-3.8146973e-06, -3.8146973e-06)
+scale = Vector2(0.09705902, 0.06890891)
+texture = ExtResource("2_mnufl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379032297]
+shape = SubResource("RectangleShape2D_nngnm")

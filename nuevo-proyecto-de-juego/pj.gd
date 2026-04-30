@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var vida : int
+@export var vida_max : int = 100
 @export var velocidad : float
 @export var danio : int
 var atacando : bool = false
@@ -8,6 +9,9 @@ var recibeDanio : bool = false
 var enemigos_en_rango : Array = []
 
 
+func  _ready() -> void:
+	vida = vida_max
+	
 
 
 
@@ -57,7 +61,11 @@ func iniciar_ataque(animacion : String) -> void:
 	await $AnimatedSprite2D.animation_finished
 	for enemigo in enemigos_en_rango:
 		if is_instance_valid(enemigo):
-			enemigo.recibir_danio(danio)
+			var posicion_jugador = global_position
+			var posicion_enemigo = enemigo.global_position
+			var distancia = posicion_jugador.distance_to(posicion_enemigo)
+			if distancia <= 70:
+				enemigo.recibir_danio(danio)
 	atacando = false
 	
 func recibir_danio(cantidad : int) -> void:

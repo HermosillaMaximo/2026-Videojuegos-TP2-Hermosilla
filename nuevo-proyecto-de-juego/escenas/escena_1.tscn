@@ -5,28 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7db2qxt4e8hj" path="res://escenas/Personaje/pj.tscn" id="2_u2yvm"]
 [ext_resource type="PackedScene" uid="uid://bhidd87tyojt3" path="res://escenas/Enemigo/el_wachin.tscn" id="3_0mg33"]
 [ext_resource type="Script" uid="uid://cmc280nlmc1vu" path="res://escenas/barraVida.gd" id="5_meahv"]
-
-[sub_resource type="GDScript" id="GDScript_meahv"]
-script/source = "extends HBoxContainer
-
-@onready var jugador = get_tree().get_first_node_in_group(\"jugador\")
-var cuadrados : Array = []
-
-func _ready() -> void:
-	for hijo in get_children():
-		cuadrados.append(hijo)
-
-func _process(delta: float) -> void:
-	var vida_max = jugador.vida_max
-	var vida_actual = jugador.vida
-	var vida_por_cuadrado = vida_max / cuadrados.size()
-	
-	for i in cuadrados.size():
-		if vida_actual > i * vida_por_cuadrado:
-			cuadrados[i].visible = true
-		else:
-			cuadrados[i].visible = false
-"
+[ext_resource type="PackedScene" uid="uid://y3eutk4r2018" path="res://escenas/VidaReHealt/corazon.tscn" id="6_ccuqr"]
 
 [node name="Escena1" type="Node2D" unique_id=1398482360]
 script = ExtResource("1_rjdl1")
@@ -74,12 +53,11 @@ position = Vector2(1133, 736)
 gizmo_extents = 65.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=16157697]
-script = SubResource("GDScript_meahv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1873943893]
 custom_minimum_size = Vector2(300, 50)
-offset_right = 194.0
-offset_bottom = 43.0
+offset_right = 300.0
+offset_bottom = 50.0
 script = ExtResource("5_meahv")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer" unique_id=1466554364]
@@ -111,3 +89,14 @@ color = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 color = Color(0, 1, 0, 1)
+
+[node name="Spawn 8" type="Marker2D" parent="." unique_id=527067578]
+position = Vector2(460, 919)
+gizmo_extents = 65.0
+
+[node name="Spawn 9" type="Marker2D" parent="." unique_id=568803303]
+position = Vector2(899, 933)
+gizmo_extents = 65.0
+
+[node name="Corazon" parent="." unique_id=74996226 instance=ExtResource("6_ccuqr")]
+position = Vector2(1639, 461)
