@@ -223,8 +223,8 @@ script = ExtResource("1_xddal")
 vida = 70
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=544364062]
-position = Vector2(-2.999999, -67)
-scale = Vector2(0.14266968, 0.14984131)
+position = Vector2(-4.5468817, -77.21875)
+scale = Vector2(0.14115904, 0.13986206)
 sprite_frames = SubResource("SpriteFrames_g5hyt")
 animation = &"enemy2_hurt"
 frame = 2
