@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://noa3lrr8xwt2"]
+
+[ext_resource type="Script" uid="uid://pj7kithavhjw" path="res://escenas/escena_2.gd" id="1_idh7a"]
+[ext_resource type="Texture2D" uid="uid://d0h3p77tiqq8a" path="res://PosibleMapa2.jpg" id="1_weykm"]
+[ext_resource type="PackedScene" uid="uid://b7db2qxt4e8hj" path="res://escenas/Personaje/pj.tscn" id="2_0afbk"]
+[ext_resource type="PackedScene" uid="uid://bgbxqkwr8bb3f" path="res://escenas/Enemigo/el_wachin_2.tscn" id="4_xo5ph"]
+
+[node name="Escena_2" type="Node2D" unique_id=749429322]
+script = ExtResource("1_idh7a")
+
+[node name="Mapa" type="Node2D" parent="." unique_id=61547769]
+
+[node name="Sprite2D" type="Sprite2D" parent="Mapa" unique_id=2126654671]
+position = Vector2(848.5, 504.99994)
+scale = Vector2(0.66054696, 0.58582306)
+texture = ExtResource("1_weykm")
+
+[node name="PJ" parent="." unique_id=1958886320 instance=ExtResource("2_0afbk")]
+position = Vector2(185, 797)
+scale = Vector2(1.5, 1.5)
+
+[node name="el_wachin2" parent="." unique_id=1048545045 instance=ExtResource("4_xo5ph")]
+position = Vector2(1114, 677)

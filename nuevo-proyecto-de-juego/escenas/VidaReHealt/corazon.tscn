@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://ne4oo4m7khyo" path="res://corazon.gd" id="1_nngnm"]
 [ext_resource type="Texture2D" uid="uid://blr6p7m0ybfye" path="res://vida.webp" id="2_mnufl"]
+[ext_resource type="Texture2D" uid="uid://bwg6ise61qtkq" path="res://FreeCharactersAnimationsAssetPack/SpriteSheets(96x96)/Human_Soldier_Sword_Shield/Only_Shadows/Human_Soldier_Sword_Shield-Sheet.png" id="3_mnufl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nngnm"]
 size = Vector2(108, 64)
 
 [node name="Corazon" type="Area2D" unique_id=74996226]
-position = Vector2(17, 11)
+position = Vector2(26, 28)
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_nngnm")
 metadata/_edit_group_ = true
 
@@ -19,3 +21,10 @@ texture = ExtResource("2_mnufl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379032297]
 shape = SubResource("RectangleShape2D_nngnm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=159372425]
+position = Vector2(-7.6293945e-06, 37.5)
+scale = Vector2(4.3125, 3.972477)
+texture = ExtResource("3_mnufl")
+hframes = 10
+vframes = 7

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var vida : int = 30
-@export var danio : int = 5
-@export var velocidad : float = 60.0
+@export var vida : int = 60
+@export var danio : int = 15
+@export var velocidad : float = 80.0
 var jugador : CharacterBody2D = null
 var atacando : bool = false
 var reciboDanio : bool = false
@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		if distancia > 53:
 			atacando = false
 			velocity = direccion * velocidad
-			$AnimatedSprite2D.play("enemy_walk")
+			$AnimatedSprite2D.play("enemy2_walk")
 		else:
 			velocity = Vector2.ZERO
 			if not atacando :
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		atacando = false
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.play("enemy_iddle")
+		$AnimatedSprite2D.play("enemy2_iddle")
 	
 	move_and_slide()
 	
@@ -57,7 +57,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		
 func atacar() -> void:
 	atacando = true
-	$AnimatedSprite2D.play("enemy_attack") 
+	$AnimatedSprite2D.play("enemy2_attack") 
 	await $AnimatedSprite2D.animation_finished
 	if jugador :
 		var distancia = global_position.distance_to(jugador.global_position)
@@ -70,11 +70,11 @@ func recibir_danio(cantidad : int) -> void:
 		return
 	reciboDanio = true
 	vida -= cantidad
-	$AnimatedSprite2D.play("enemy_hurt")
+	$AnimatedSprite2D.play("enemy2_hurt")
 	if vida <= 0:
 		queue_free()
 		return
-	$AnimatedSprite2D.play("enemy_hurt")
+	$AnimatedSprite2D.play("enemy2_hurt")
 	await $AnimatedSprite2D.animation_finished
 	reciboDanio = false
 	

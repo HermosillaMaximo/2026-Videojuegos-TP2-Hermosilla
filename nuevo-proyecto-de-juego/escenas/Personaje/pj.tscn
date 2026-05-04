@@ -285,7 +285,7 @@ position = Vector2(188, 412)
 collision_layer = 12
 motion_mode = 1
 script = ExtResource("1_7152t")
-vida = 50
+vida = 100
 velocidad = 90.0
 danio = 10
 

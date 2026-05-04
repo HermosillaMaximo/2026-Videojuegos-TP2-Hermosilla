@@ -9,6 +9,7 @@
 
 [node name="Escena1" type="Node2D" unique_id=1398482360]
 script = ExtResource("1_rjdl1")
+escena_corazon = ExtResource("6_ccuqr")
 escena_enemigo = ExtResource("3_0mg33")
 
 [node name="Mapa" type="Node2D" parent="." unique_id=562035407]
@@ -98,5 +99,10 @@ gizmo_extents = 65.0
 position = Vector2(899, 933)
 gizmo_extents = 65.0
 
-[node name="Corazon" parent="." unique_id=74996226 instance=ExtResource("6_ccuqr")]
-position = Vector2(1639, 461)
+[node name="SpawnCorazon1" type="Marker2D" parent="." unique_id=566849817]
+position = Vector2(1161, 942)
+gizmo_extents = 70.3
+
+[node name="SpawnCorazon2" type="Marker2D" parent="." unique_id=1578868150]
+position = Vector2(169, 880)
+gizmo_extents = 87.6

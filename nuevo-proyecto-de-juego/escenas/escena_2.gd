@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var escena_corazon : PackedScene
-@export var escena_enemigo : PackedScene
+@export var escena_enemigo2 : PackedScene
 var timer_corazon : float = 0.0
 @export var timpoCorazon : float = 15.0
 var corazonesActivos : int = 1
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 
 func spawnearCorazon() -> void:
-	var spawns = [$SpawnCorazon1,$SpawnCorazon2]
+	var spawns = [$SpawnCorazon1,$SpawnCorazon2,$SpawnCorazon3]
 	var spawnerRandon = spawns[randi() % spawns.size()]
 	var corazon = escena_corazon.instantiate()
 	corazon.global_position = spawnerRandon.global_position
@@ -36,9 +36,9 @@ func spawnearCorazon() -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var spawns = [$"Spawn 1",$"Spawn 2",$"Spawn 3",$"Spawn 4",$"Spawn 5",$"Spawn 6",$"Spawn 7",$"Spawn 8"]
+	var spawns = [$"Spawn 1",$"Spawn 2",$"Spawn 3",$"Spawn 4",$"Spawn 5",$"Spawn 6",$"Spawn 7",$"Spawn 8",$"Spawn 9",$"Spawn 10"]
 	for spawn in spawns:
-		var enemigo =  escena_enemigo.instantiate()
+		var enemigo =  escena_enemigo2.instantiate()
 		enemigo.global_position = spawn.global_position
 		add_child(enemigo)
 	

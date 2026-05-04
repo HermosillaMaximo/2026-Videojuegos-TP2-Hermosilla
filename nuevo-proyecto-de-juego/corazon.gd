@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
-		body.vida = min(body.vida + 50, body.vida_max)
+		body.vida = min(body.vida + 40, body.vida_max)
 		queue_free()
 		
 
