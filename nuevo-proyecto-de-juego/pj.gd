@@ -20,10 +20,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-		
 	
-	
-	
+
 	var direccion := Vector2.ZERO 
 	direccion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direccion.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -64,7 +62,7 @@ func iniciar_ataque(animacion : String) -> void:
 			var posicion_jugador = global_position
 			var posicion_enemigo = enemigo.global_position
 			var distancia = posicion_jugador.distance_to(posicion_enemigo)
-			if distancia <= 70:
+			if distancia <= 100:
 				enemigo.recibir_danio(danio)
 	atacando = false
 	
@@ -83,7 +81,6 @@ func recibir_danio(cantidad : int) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("area detectó: ", body.name, " grupos: ", body.get_groups())
 	if body.is_in_group("enemigo"):
 		enemigos_en_rango.append(body)
 		

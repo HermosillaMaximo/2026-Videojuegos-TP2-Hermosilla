@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c52e4bw7codq" path="res://AssetsBossFinal/individual sprites/05_demon_death/demon_death_1.png" id="1_a5q41"]
 [ext_resource type="Texture2D" uid="uid://daicv75mmiq5k" path="res://AssetsBossFinal/individual sprites/01_demon_idle/demon_idle_1.png" id="1_lxq3l"]
 [ext_resource type="Texture2D" uid="uid://cy1fq6llohkjl" path="res://AssetsBossFinal/individual sprites/04_demon_take_hit/demon_take_hit_1.png" id="1_w5wxi"]
+[ext_resource type="Script" uid="uid://3bym5fcsk4cr" path="res://escenas/Enemigo/finalbossngr.gd" id="1_y375y"]
 [ext_resource type="Texture2D" uid="uid://cwfr27krpp3kg" path="res://AssetsBossFinal/individual sprites/04_demon_take_hit/demon_take_hit_2.png" id="2_766d0"]
 [ext_resource type="Texture2D" uid="uid://ro1re0ls0ijm" path="res://AssetsBossFinal/individual sprites/01_demon_idle/demon_idle_2.png" id="2_mtn2r"]
 [ext_resource type="Texture2D" uid="uid://csc1e7wqg6265" path="res://AssetsBossFinal/individual sprites/05_demon_death/demon_death_2.png" id="2_y375y"]
@@ -423,7 +424,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2b2ht")
 }],
-"loop": true,
+"loop": false,
 "name": &"boss_angry",
 "speed": 11.0
 }, {
@@ -473,7 +474,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hu6iq")
 }],
-"loop": true,
+"loop": false,
 "name": &"boss_attack",
 "speed": 14.0
 }, {
@@ -544,7 +545,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uewmb")
 }],
-"loop": true,
+"loop": false,
 "name": &"boss_finallyDeath",
 "speed": 8.0
 }, {
@@ -564,7 +565,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gxrlk")
 }],
-"loop": true,
+"loop": false,
 "name": &"boss_hurt",
 "speed": 9.0
 }, {
@@ -633,29 +634,38 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhek2"]
-radius = 45.0
-height = 126.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y375y"]
+size = Vector2(190, 277)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnee7"]
-radius = 444.54135
+radius = 1329.9812
 
-[node name="FINALBOSSNGR" type="CharacterBody2D" unique_id=991741917]
+[node name="FINALBOSSNGR" type="CharacterBody2D" unique_id=991741917 groups=["enemigo"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_y375y")
+vida = 500
+danio = 25
+velocidad = 80.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1545442240]
-position = Vector2(65, 45)
-scale = Vector2(1.4583334, 1.5625)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1545442240 groups=["enemigo"]]
+position = Vector2(211, -305.99997)
+scale = Vector2(3.5555556, 4.06875)
 sprite_frames = SubResource("SpriteFrames_pvl2b")
-animation = &"boss_angry"
-frame_progress = 0.73216754
+animation = &"boss_hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1633933647]
-position = Vector2(72, 110)
-shape = SubResource("CapsuleShape2D_lhek2")
+position = Vector2(228, -133.5)
+shape = SubResource("RectangleShape2D_y375y")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1034522840]
-position = Vector2(72, 110)
+position = Vector2(235, -121)
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2114147184]
-position = Vector2(0, 2)
+position = Vector2(-3, -13)
 shape = SubResource("CircleShape2D_rnee7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
