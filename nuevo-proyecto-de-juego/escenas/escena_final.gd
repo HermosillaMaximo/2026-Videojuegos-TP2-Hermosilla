@@ -1,5 +1,6 @@
 extends Node2D
 
+#CORRECCION: Lo bueno de las variables es que podemos cambiarlas en relación a lo que necesitemos, y la escena del boss es la que más daño te pueden hacer seguido y no cambia la velocidad de aparición del corazón sigue siendo la misma.
 @export var escena_corazon : PackedScene
 var timer_corazon : float = 0.0
 @export var timpoCorazon : float = 15.0

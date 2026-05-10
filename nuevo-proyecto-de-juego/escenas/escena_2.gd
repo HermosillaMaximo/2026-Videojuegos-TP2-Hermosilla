@@ -1,5 +1,6 @@
 extends Node2D
 
+#CORRECCION: Los tres scripts de estas escenas puede ser un solo script con algunos parámetros, fijate, abrilos los tres, ponelos uno al lado del otro, las cosas que cambian volvelas propiedades y ya estás.
 @export var escena_corazon : PackedScene
 @export var escena_enemigo2 : PackedScene
 var timer_corazon : float = 0.0

@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 
 func spawnearCorazon() -> void:
 	var spawns = [$SpawnCorazon1,$SpawnCorazon2]
+	#CORRECCION: spawns.pick_random()
 	var spawnerRandon = spawns[randi() % spawns.size()]
 	var corazon = escena_corazon.instantiate()
 	corazon.global_position = spawnerRandon.global_position
@@ -36,6 +37,7 @@ func spawnearCorazon() -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#CORRECCION: Usas el get_nodes_in_group() para los enemigos, hasta para el jugador, pero no para el spawn?
 	var spawns = [$"Spawn 1",$"Spawn 2",$"Spawn 3",$"Spawn 4",$"Spawn 5",$"Spawn 6",$"Spawn 7",$"Spawn 8"]
 	for spawn in spawns:
 		var enemigo =  escena_enemigo.instantiate()

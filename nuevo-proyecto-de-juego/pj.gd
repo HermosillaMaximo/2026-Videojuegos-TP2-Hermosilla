@@ -16,6 +16,7 @@ func  _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#CORRECCION: "esto me ayudo para que el personaje no se quede statico cuando ataca" 😄
 	if atacando:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -23,8 +24,8 @@ func _physics_process(delta: float) -> void:
 	
 
 	var direccion := Vector2.ZERO 
-	direccion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	direccion.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	direccion.x = Input.get_action_strength("de") - Input.get_action_strength("iz")
+	direccion.y = Input.get_action_strength("ab") - Input.get_action_strength("ar")
 	direccion = direccion.normalized()  
 	velocity = direccion * velocidad
 	move_and_slide()
@@ -57,6 +58,7 @@ func iniciar_ataque(animacion : String) -> void:
 	atacando = true
 	$AnimatedSprite2D.play(animacion)
 	await $AnimatedSprite2D.animation_finished
+	#CORRECCION: mmmmm esto me hace sospechar mucho, por qué no usás un Area2D? Solo se me ocurre algo a lo que se lo ocurría una cosa así (fijate que dije algo y no alguien, adivInA).
 	for enemigo in enemigos_en_rango:
 		if is_instance_valid(enemigo):
 			var posicion_jugador = global_position

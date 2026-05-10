@@ -81,6 +81,7 @@ func morir() -> void:
 	await $AnimatedSprite2D.animation_finished
 	get_tree().change_scene_to_file("res://escenas/win.tscn")
 
+#CORRECCION: Con una combinación de respetar los layer y mask, que lo estás haciendo (aunque a veces medio raro), y las propiedades Monitoring y Monitorable del Area2D, estos if preguntando por el jugador desaparecen y solo entra a esta función el jugador
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
 		jugador = body
